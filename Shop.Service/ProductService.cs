@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Entites
+namespace Shop.Service
 {
-    public class Category : BaseEntity
+    public class ProductService
     {
     }
 }
