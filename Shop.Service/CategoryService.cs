@@ -11,7 +11,7 @@ namespace Shop.Service
     public class CategoryService
     {
         DBHandler context = new DBHandler();
-        public Category GetCategories()
+        public List<Category> GetCategories()
         {
             return context.Categories.ToList();
         }

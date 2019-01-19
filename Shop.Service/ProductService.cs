@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace Shop.Service
 {
     public class ProductService
     {
+        DBHandler context = new DBHandler();
+        
     }
 }
