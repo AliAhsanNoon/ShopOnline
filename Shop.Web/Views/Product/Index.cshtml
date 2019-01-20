@@ -1,0 +1,25 @@
+﻿@model List<Shop.Entites.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Product List</h2>
+
+
+
+
+<table class="table table-condensed">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+
+</table>
