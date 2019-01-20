@@ -29,5 +29,19 @@ namespace Shop.Web.cats
             categoryService.SaveCategory(category);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Edit(int ID=1)
+        {
+            var data = categoryService.GetCategory(ID);
+            return View(data);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Category category)
+        {
+            categoryService.UpdateCategory(category);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -3,6 +3,7 @@ using Shop.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +21,20 @@ namespace Shop.Service
             using (context)
             {
                 context.Categories.Add(category);
+                context.SaveChanges();
+            }
+        }
+
+        public Category GetCategory(int ID)
+        {
+            return context.Categories.ToList().SingleOrDefault(x => x.ID == ID);
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            using (context)
+            {
+                context.Entry(category).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
