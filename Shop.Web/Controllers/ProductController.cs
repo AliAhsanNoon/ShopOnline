@@ -1,4 +1,5 @@
-﻿using Shop.Service;
+﻿using Shop.Entites;
+using Shop.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,18 @@ namespace Shop.Web.Controllers
     public class ProductController : Controller
     {
         ProductService productService = new ProductService();
-        // GET: Product
+
         public ActionResult Index()
-        {   return View(productService.GetProducts()); }
+        {   return View( productService.GetProducts() ); }
+
+        [HttpGet]
+        public ActionResult Edit(int ID) { return View(productService.Edit(ID)); }
+
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+            productService.Update(product);
+            return RedirectToAction("Index");
+        }
     }
 }
