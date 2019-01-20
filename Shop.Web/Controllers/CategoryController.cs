@@ -27,7 +27,7 @@ namespace Shop.Web.cats
         public ActionResult Create(Category category )
         {
             categoryService.SaveCategory(category);
-            return RedirectToAction("Index");
+            return RedirectToAction("ProductTable");
         }
 
         [HttpGet]
@@ -41,7 +41,7 @@ namespace Shop.Web.cats
         public ActionResult Edit(Category category)
         {
             categoryService.UpdateCategory(category);
-            return RedirectToAction("Index");
+            return RedirectToAction("ProductTable");
         }
     }
 }

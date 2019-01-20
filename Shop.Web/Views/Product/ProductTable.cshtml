@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ProductTable";
+}
+
+<h2>ProductTable</h2>
+
+<table class="table table-condensed">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>$@item.Price</td>
+            <td>
+                <button id="btnEdit" type="button">Edit</button>
+                <button id="btnDelete" type="button">Delete</button>
+            </td>
+        </tr>
+    }
+</table>
+
