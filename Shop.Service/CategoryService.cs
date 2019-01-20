@@ -11,9 +11,17 @@ namespace Shop.Service
     public class CategoryService
     {
         DBHandler context = new DBHandler();
-        public List<Category> GetCategories()
+
+        public List<Category> GetCategories() { return context.Categories.ToList(); }
+
+        // Save Record into Categories
+        public void SaveCategory(Category category)
         {
-            return context.Categories.ToList();
+            using (context)
+            {
+                context.Categories.Add(category);
+                context.SaveChanges();
+            }
         }
     }
 }
