@@ -4,21 +4,20 @@
 }
 
 <h2>ProductTable</h2>
+<div>
+    <form method="post">
+        <input id="searchProducts" type="text" name="Search" placeholder="Search Products..." />
+        <input id="btnSearch" type="button" name="search" value="Search" />
+    </form>
+    <input id="newBtn" type="button" name="addNew" value="New" />
+</div>
 
 <table class="table table-condensed">
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Action</th>
-    </tr>
+    <tr><th>Name</th><th>Description</th><th>Price</th><th>Action</th></tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>$@item.Price</td>
+        <tr><td>@item.Name</td><td>@item.Description</td><td>$@item.Price</td>
             <td>
                 <button id="btnEdit" type="button">Edit</button>
                 <button id="btnDelete" type="button">Delete</button>
@@ -27,3 +26,19 @@
     }
 </table>
 
+@section Scripts{
+    <script type="text/javascript">
+
+
+        $("#btnSearch").click(function () {
+            alert("Working");
+        });
+
+        $("#newBtn").click(function () {
+            $.ajax({
+                url: '/Product/Create'
+            }).done(function (response) { console.log(response); })
+                .fail(function (XMLHttpRequest, txtStatus, errorThrown) { console.log('fail') });
+        });
+    </script>
+}

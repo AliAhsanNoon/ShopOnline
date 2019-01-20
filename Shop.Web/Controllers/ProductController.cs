@@ -15,10 +15,10 @@ namespace Shop.Web.Controllers
         public ActionResult Index() { return View( productService.GetProducts() ); }
 
         public ActionResult ProductTable()
-        { var products = productService.GetProducts(); return View(products); }
+        { var products = productService.GetProducts(); return PartialView(products); }
 
         [HttpGet]
-        public ActionResult Create(){ return View(); }
+        public ActionResult Create(){ return PartialView(); }
 
         [HttpPost]
         public ActionResult Create(Product product)
